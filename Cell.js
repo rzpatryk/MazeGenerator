@@ -151,24 +151,24 @@ class Cell {
       ctx.lineTo(x + cellWidth, y);
       ctx.stroke();
     }
+    if(!this.neighbours.has("West")){
+      ctx.beginPath();
+      ctx.moveTo(x, y + cellHeight);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
     if (!this.neighbours.has("East") || (this.neighbours.has("East") && !this.linked(this.neighbours.get("East")))) {
       ctx.beginPath();
       ctx.moveTo(x + cellWidth, y);
       ctx.lineTo(x + cellWidth, y + cellHeight);
       ctx.stroke();
     }
-    if (!this.neighbours.has("South") || (this.neighbours.has("South") && !this.linked(this.neighbours.get("South")))) {
+     if(!this.neighbours.has("South")){
       ctx.beginPath();
       ctx.moveTo(x + cellWidth, y + cellHeight);
       ctx.lineTo(x, y + cellHeight);
       ctx.stroke();
-    }
-    if (!this.neighbours.has("West") || (this.neighbours.has("West") && !this.linked(this.neighbours.get("West")))) {
-      ctx.beginPath();
-      ctx.moveTo(x, y + cellHeight);
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    }
+     }
   }
 }
 

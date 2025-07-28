@@ -24,14 +24,14 @@ class SquareGrid extends MazeGrid {
       for (let c = 0; c < this.column; c++) {
         const cell = this.grid[r][c];
         
-        // Sąsiad na południu (wiersz - 1)
+        // Sąsiad na północy (wiersz - 1)
         if (this.isOnGrid(r - 1, c)) {
-          cell.neighbours.set("South", this.grid[r - 1][c]);
+          cell.neighbours.set("North", this.grid[r - 1][c]);
         }
-        
-        // Sąsiad na północy (wiersz + 1)
+
+        // Sąsiad na południu (wiersz + 1)
         if (this.isOnGrid(r + 1, c)) {
-          cell.neighbours.set("North", this.grid[r + 1][c]);
+          cell.neighbours.set("South", this.grid[r + 1][c]);
         }
         
         // Sąsiad na wschodzie (kolumna + 1)
