@@ -139,6 +139,38 @@ class Cell {
   toString() {
     return `Cell(${this.row}, ${this.column})`;
   }
+  draw(ctx, cellWidth, cellHeight, canvas) {
+    const x = this.column * cellWidth + (canvas.width * 0.05 / 2);
+    const y = this.row * cellHeight + (canvas.height * 0.05 / 2);
+
+    ctx.strokeStyle = "#fff"; // Zmienione z "#000" na "#fff" dla białych ścian
+    ctx.lineWidth = 2;
+
+    if (!this.neighbours.has("North") || (this.neighbours.has("North") && !this.linked(this.neighbours.get("North")))) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + cellWidth, y);
+      ctx.stroke();
+    }
+    if (!this.neighbours.has("East") || (this.neighbours.has("East") && !this.linked(this.neighbours.get("East")))) {
+      ctx.beginPath();
+      ctx.moveTo(x + cellWidth, y);
+      ctx.lineTo(x + cellWidth, y + cellHeight);
+      ctx.stroke();
+    }
+    if (!this.neighbours.has("South") || (this.neighbours.has("South") && !this.linked(this.neighbours.get("South")))) {
+      ctx.beginPath();
+      ctx.moveTo(x + cellWidth, y + cellHeight);
+      ctx.lineTo(x, y + cellHeight);
+      ctx.stroke();
+    }
+    if (!this.neighbours.has("West") || (this.neighbours.has("West") && !this.linked(this.neighbours.get("West")))) {
+      ctx.beginPath();
+      ctx.moveTo(x, y + cellHeight);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
+  }
 }
 
 // Eksport dla użycia w innych plikach (jeśli używasz modułów)

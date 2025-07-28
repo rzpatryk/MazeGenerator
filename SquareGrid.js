@@ -1,7 +1,7 @@
 // Klasa SquareGrid przepisana z C# na JavaScript
 // Wymaga: MazeGrid.js i CellAdvanced.js (lub odpowiednia klasa Cell)
-import Cell from './Cell'; 
-import Cell from './MazeGrid'; 
+//import Cell from './Cell'; 
+//import MazeGrid from './MazeGrid'; 
 class SquareGrid extends MazeGrid {
   constructor(row, column) {
     super(row, column);
