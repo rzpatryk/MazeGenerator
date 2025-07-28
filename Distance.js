@@ -23,7 +23,5 @@ class Distance {
   }
 }
 
-// Eksport dla użycia w innych plikach (jeśli używasz modułów)
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Distance;
-}
+// Zmień na ES6 export
+export default Distance;

@@ -1,5 +1,4 @@
-// Import klasy Distance z osobnego pliku
-// Jeśli używasz modułów ES6, użyj: import Distance from './Distance.js';
+import Distance from './Distance.js';
 
 // Zaawansowana klasa Cell przepisana z C# na JavaScript
 class Cell {
@@ -173,7 +172,4 @@ class Cell {
   }
 }
 
-// Eksport dla użycia w innych plikach (jeśli używasz modułów)
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Cell;
-}
+export default Cell;

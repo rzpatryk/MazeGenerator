@@ -1,3 +1,4 @@
+import SquareGrid from './SquareGrid.js';
 const canvas = document.getElementById('mazeCanvas');
 const ctx = canvas.getContext('2d');
 

@@ -1,6 +1,4 @@
-// Abstrakcyjna klasa MazeGrid przepisana z C# na JavaScript
-// Wymaga: Cell.js (lub odpowiednia klasa Cell)
-//const Cell = require('./Cell'); // Dodano import klasy Cell
+import Cell from './Cell.js';
 
 class MazeGrid {
   constructor(row, column) {
@@ -154,7 +152,4 @@ class MazeGrid {
   }
 }
 
-// Eksport dla użycia w innych plikach
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = MazeGrid;
-}
+export default MazeGrid;
