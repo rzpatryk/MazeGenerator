@@ -1,4 +1,5 @@
 import SquareGrid from './SquareGrid.js';
+import HexGrid from './HexGrid.js';
 import MazeAlgorithms from './algorithms/MazeAlgorithms.js';
 
 const canvas = document.getElementById('mazeCanvas');
@@ -21,10 +22,11 @@ document.getElementById('generateMaze').addEventListener('click', () => {
 });
 
 function generateGrid(r, c) {
-  cellWidth = (canvas.width - canvas.width * 0.05) / c;
+  cellWidth = (canvas.width - canvas.width * 0.05) /c;
   cellHeight = (canvas.height - canvas.height * 0.05) / r;
   
-  grid = new SquareGrid(r, c);
+  //grid = new SquareGrid(r, c);
+  grid = new HexGrid(r, c);
 }
 
 function drawGrid() {
@@ -36,7 +38,8 @@ function drawGrid() {
   for (let r = 0; r < grid.row; r++) {
     for (let c = 0; c < grid.column; c++) {
       const cell = grid.grid[r][c];
-      cell.draw(ctx, cellWidth, cellHeight, canvas);
+      //cell.draw(ctx, cellWidth, cellHeight, canvas);
+      cell.drawHexGrid(ctx, cellWidth, cellHeight, canvas);
     }
   }
 

@@ -170,6 +170,80 @@ class Cell {
       ctx.stroke();
      }
   }
+
+  drawHexGrid(ctx, cellWidth, cellHeight, canvas) {
+        ctx.strokeStyle = "#fff"; // Zmienione z "#000" na "#fff" dla białych ścian
+        ctx.lineWidth = 2;
+        cellHeight -= (cellHeight / 2) / 10;
+        cellWidth -= cellWidth / 3;
+        let cx, cy;
+        let x_fw, x_nw, x_ne, x_fe;
+        let y_n, y_m, y_s;
+
+        let a_size = cellWidth / 2;
+        let b_size = cellHeight / 2;
+        let height = b_size * 2;
+
+        // cx = (cellWidth + 3 * cell.column * a_size) - (((cellWidth * 3 * column) / 2 - a_size) / 2) - (a_size);
+        // cy = (b_size + cell.row * height) - (b_size * row) - (b_size / 2);
+        cx = (cellWidth + 3 *  this.column * a_size); //+ (canvas.width * 0.05 / 2) - a_size/2;//this.column * cellWidth + cellWidth;
+        cy = (this.row * cellHeight + cellHeight);
+        if (this.column % 2 != 0){
+            cy += b_size;
+        }
+
+        x_fw = cx - cellWidth
+        x_nw = cx - a_size;
+        x_ne = cx + a_size;
+        x_fe = cx + cellWidth
+
+        y_n = cy - b_size;
+        y_m = cy;
+        y_s = cy + b_size;
+
+        if (!(this.neighbours.has("NorthWest")))
+        {
+            ctx.beginPath();
+            ctx.moveTo(x_fw, y_m);
+            ctx.lineTo(x_nw, y_n);
+            ctx.stroke();
+        }
+         if ((this.neighbours.has("NorthEast") && !(this.linked(this.neighbours.get("NorthEast")))) || !this.neighbours.has("NorthEast"))
+         {
+             ctx.beginPath();
+             ctx.moveTo(x_ne, y_n);
+             ctx.lineTo(x_fe, y_m);
+             ctx.stroke();
+         }
+         if ((this.neighbours.has("North") && !(this.linked(this.neighbours.get("North")))) || !this.neighbours.has("North"))
+         {
+             ctx.beginPath();
+             ctx.moveTo(x_ne, y_n);
+             ctx.lineTo(x_nw, y_n);
+             ctx.stroke();
+         }
+         if (!(this.neighbours.has("South")))
+          {
+                  ctx.beginPath();
+                  ctx.moveTo(x_ne, y_s);
+                  ctx.lineTo(x_nw, y_s);
+                  ctx.stroke();
+                }
+         if (!(this.neighbours.has("SouthWest")))
+         {
+             ctx.beginPath();
+             ctx.moveTo(x_fw, y_m);
+             ctx.lineTo(x_nw, y_s);
+             ctx.stroke();
+         }
+         if ((this.neighbours.has("SouthEast") && !(this.linked(this.neighbours.get("SouthEast")))) || !this.neighbours.has("SouthEast"))
+         {
+             ctx.beginPath();
+             ctx.moveTo(x_fe, y_m);
+             ctx.lineTo(x_ne, y_s);
+             ctx.stroke();
+         }
+  }
 }
 
 export default Cell;
