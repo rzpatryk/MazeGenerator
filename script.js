@@ -194,23 +194,23 @@ class Cell {
   }
 }
 
-document.getElementById('generateMaze').addEventListener('click', () => {
-  rows = parseInt(document.getElementById('rows').value);
-  cols = parseInt(document.getElementById('cols').value);
-  const algorithm = document.getElementById('algorithm').value;
+// document.getElementById('generateMaze').addEventListener('click', () => {
+//   rows = parseInt(document.getElementById('rows').value);
+//   cols = parseInt(document.getElementById('cols').value);
+//   //const algorithm = document.getElementById('algorithm').value;
 
-  generateGrid(rows, cols);
+//   generateGrid(rows, cols);
 
-//   if (algorithm === 'dfs') {
-//     generateMazeDFS();
-//   } else if (algorithm === 'prim') {
-//     generateMazePrim();
-//   } else if (algorithm === 'kruskal') {
-//     generateMazeKruskal();
-//   }
+// //   if (algorithm === 'dfs') {
+// //     generateMazeDFS();
+// //   } else if (algorithm === 'prim') {
+// //     generateMazePrim();
+// //   } else if (algorithm === 'kruskal') {
+// //     generateMazeKruskal();
+// //   }
 
-  drawGrid();
-});
+//   drawGrid();
+// });
 
 function generateGrid(r, c) {
   cellWidth = (canvas.width - canvas.width * 0.05) / c;
